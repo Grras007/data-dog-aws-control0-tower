@@ -50,11 +50,15 @@ Parameters:
     Description: >-
       REQUIRED. API key for the Datadog account (find at
       https://app.datadoghq.com/account/settings#api)
+    AllowedPattern: .+
+    Default: "8cf402774432bdd344756a8ab3d11e6d"
     Type: String
   DatadogApplicationKey:
     Description: >-
       REQUIRED. Application key for the Datadog account (find at
       https://app.datadoghq.com/account/settings#api)
+    AllowedPattern: .+
+    Default: "dd7af78f2afb6513b0becfa55f3c8eaae4190c35"
     Type: String
   DdSite:
     Type: String
