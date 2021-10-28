@@ -143,14 +143,6 @@ Resources:
           - Ref: DdForwarderName
           - '"}'
 
-  DatadogStackSetLambdaExecutePermission:
-    Type: 'AWS::Lambda::Permission'
-    Properties:
-      Action: 'lambda:InvokeFunction'
-      FunctionName: !GetAtt 'DatadogStackSetLambda.Arn'
-      Principal: 'cloudformation.amazonaws.com'
-      SourceAccount: !Ref 'AWS::AccountId'
- 
   CreateDatadogStackSet:
     Type: 'Custom::DatadogStackSet'
     DependsOn:
@@ -160,6 +152,14 @@ Resources:
       datadogUrl: !Ref DatadogTemplateURL
       AccountId: !Ref 'AWS::AccountId'
       Region: !Ref 'AWS::Region' 
+      
+  DatadogStackSetLambdaExecutePermission:
+    Type: 'AWS::Lambda::Permission'
+    Properties:
+      Action: 'lambda:InvokeFunction'
+      FunctionName: !GetAtt 'DatadogStackSetLambda.Arn'
+      Principal: 'cloudformation.amazonaws.com'
+      SourceAccount: !Ref 'AWS::AccountId'
       
   DatadogStackSetLambda:
     Type: 'AWS::Lambda::Function'
