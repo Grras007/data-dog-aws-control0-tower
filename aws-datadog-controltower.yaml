@@ -26,7 +26,7 @@ Description: AWS Control Tower Lifecycle Events for Datadog
 #        Datadog stackset in the Management account
 #     
 ##
-## @author: kmmahaj@amazon.com
+## @author: yogendra.rathore@nttdata.com
 ## 
 #
 # ------------------------------------------------------------...............................................
@@ -149,8 +149,8 @@ Resources:
  
   CreateDatadogStackSet:
     Type: 'Custom::DatadogStackSet'
- #   DependsOn:
- #     - DatadogStackSetLambdaExecutePermission
+    DependsOn:
+      - DatadogStackSetLambdaExecutePermission
     Properties:
       ServiceToken: !GetAtt 'DatadogStackSetLambda.Arn'
       datadogUrl: !Ref DatadogTemplateURL
